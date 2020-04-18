@@ -2,7 +2,7 @@
 
 void listProduct(Product *plist, int count){
  //전체 제품의 리스트를 출력
-	printf("no name  weight  price  표준 가격  별점수\n");
+	printf("no  weight  price  표준 가격  별점수 name\n");
 	printf("*****************************************\n");
 	for (int i = 0; i < count ; i++){
 	  if (plist[i].weight == -1) continue;
@@ -30,7 +30,7 @@ void saveData(Product *p, int count){
 	if(p[i].weight == -1) continue;
 	
   //  fprintf(fp, "%s ", p[i].name); 
-    fprintf(fp, "%s %dg %d원 (10g당:%d원) %d점 \n",p[i].name,  p[i].weight, p[i].price, p[i].standPrice, p[i].star);
+    fprintf(fp, "%dg %d원 (10g당:%d원) %d점 %s\n", p[i].weight, p[i].price, p[i].standPrice, p[i].star, p[i].name);
   	}fclose(fp);
   printf("저장됨!\n");
 }
@@ -48,7 +48,8 @@ int count = 0;
  
   for(;;count++){
    // 	fscanf(fp,"%s", p[count].name); 
-	fscanf(fp, "%[^123456789]s %dg %d원 (10g당:%d원) %d점 \n",p[count].name, &p[count].weight, &p[count].price, &p[count].standPrice, &p[count].star);
+	fscanf(fp, "%dg %d원 (10g당:%d원) %d점 ",&p[count].weight, &p[count].price, &p[count].standPrice);
+	fscanf(fp, "%s/n", p[count].name);
     if(feof(fp)) break;
   }
   fclose(fp);
@@ -63,7 +64,7 @@ void searchName(Product *p, int count){
   printf("검색할 이름은?\n");
   scanf("%s", search);
 
-  printf("no name  weight  price  표준 가격  별점수\n");
+  printf("no weight  price  표준 가격  별점수 name\n");
   printf("*******************\n");
   for(int i = 0; i < count; i++){
     if(p[i].weight == -1) continue;
