@@ -47,7 +47,8 @@ int count = 0;
   }
  
   for(;;count++){
-    fprintf(fp, "%dg %d원 (10g당:%d원) %d점 \n", p[count].weight, p[count].price, p[count].standPrice, p[count].star);
+    	fscanf("%s ", p.name); 
+	fscanf(fp, "%dg %d원 (10g당:%d원) %d점 \n", &p[count].weight, &p[count].price, &p[count].standPrice, &p[count].star);
     if(feof(fp)) break;
   }
   fclose(fp);
@@ -62,6 +63,7 @@ void searchName(Product *p, int count){
   printf("검색할 이름은?\n");
   scanf("%s", search);
 
+  printf("no name  weight  price  표준 가격  별점수\n");
   printf("*******************\n");
   for(int i = 0; i < count; i++){
     if(p[i].weight == -1) continue;
