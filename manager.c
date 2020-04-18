@@ -47,7 +47,7 @@ int count = 0;
   }
  
   for(;;count++){
-    	fscanf("%s ", p.name); 
+    	fscanf(fp,"%s ", p.name); 
 	fscanf(fp, "%dg %d원 (10g당:%d원) %d점 \n", &p[count].weight, &p[count].price, &p[count].standPrice, &p[count].star);
     if(feof(fp)) break;
   }
