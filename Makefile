@@ -17,6 +17,6 @@ manager.o : manager.c manager.h
 	$(CC) $(CFLAGS) -c -o manager.o $<
 
 clean :
-	rm *.o $(TARGET) $(DTARGET)
+	rm *.o *.txt $(TARGET) $(DTARGET) 
 
 
