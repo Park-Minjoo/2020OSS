@@ -9,6 +9,8 @@ int selectMenu(){
     printf("2. 제품추가\n");
     printf("3. 제품수정\n");
     printf("4. 제품삭제\n");
+    printf("5. 파일저장\n");
+    printf("6. 이름검색\n");
     printf("0. 종료\n\n");
     printf("=> 원하는 메뉴는? ");
     scanf("%d", &menu);
