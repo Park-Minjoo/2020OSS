@@ -30,7 +30,7 @@ void saveData(Product *p, int count){
 	if(p[i].weight == -1) continue;
 	
   //  fprintf(fp, "%s ", p[i].name); 
-    fprintf(fp, "%s %dg %d원 (10g당:%d원) %d점 \n",p[i].name,  p[i].weight, p[i].price, p[i].standPrice, p[i].star);
+    fprintf(fp, "%[^123456789]s %dg %d원 (10g당:%d원) %d점 \n",p[i].name,  p[i].weight, p[i].price, p[i].standPrice, p[i].star);
   	}fclose(fp);
   printf("저장됨!\n");
 }
