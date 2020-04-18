@@ -19,9 +19,10 @@ int selectMenu(){
 }
 
 void readProduct(Product p){
-//1  로아커 초콜릿 라즈베리 요거트 55g 1980원 (10g당:360원) 5점
-    printf("%s ", p.name); 
-    printf("%dg %d원 (10g당:%d원) %d점 \n", p.weight, p.price, p.standPrice, p.star);
+//1  55g 1980원 (10g당:360원) 5점로아커 초몰릿 라즈베리 요거트
+    //printf("%s ", p.name); 
+    printf("%dg %d원 (10g당:%d원) %d점 ", p.weight, p.price, p.standPrice, p.star);
+    printf("%s\n", p.name); 
 } //하나의 제품을 출력하는 함수
 
 int main(void){
