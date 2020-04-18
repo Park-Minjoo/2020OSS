@@ -28,7 +28,8 @@ void saveData(Product *p, int count){
 	for(int i = 0; i < count; i++){
 	if(s[i].weight == -1) continue;
 	
-//	fprintf(fp, "%s %d %d %d\n", s[i].name, s[i].kor, s[i].eng, s[i].math);
+    fprintf(fp, "%s ", p[i].name); 
+    fprintf(fp, "%dg %d원 (10g당:%d원) %d점 \n", p[i].weight, p[i].price, p[i].standPrice, p[i].star);
   	}fclose(fp);
   printf("저장됨!\n");
 }
@@ -44,8 +45,10 @@ int count = 0;
   }
  
   for(;;count++){
-   // fscanf(fp, "%s %d %d %d", s[count].name, &s[count].kor, &s[count].eng, &s[count].math);
-    if(feof(fp)) break;
+    fprintf(fp, "%s ", p[i].name); 
+    fprintf(fp, "%dg %d원 (10g당:%d원) %d점 \n", p[i].weight, p[i].price, p[i].standPrice, p[i].star);
+    
+	if(feof(fp)) break;
   }
   fclose(fp);
   printf("=> 로딩 성공\n");
