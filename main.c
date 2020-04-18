@@ -28,13 +28,15 @@ int main(void){
 
 //    Product p;
     int count = 0, menu;
- 
+    
+    count = loadData(plist);
+    curcount = count;
 #ifdef DEBUG
 	printf("DEBUG: %s %s %s %d\n",__DATE__, __TIME__, __FILE__, __LINE__);
 #endif
     while (1){
         menu = selectMenu();
-        if (menu == 0) break;
+	if (menu == 0) break;
 	if (menu == 1) {
 	 if (count > 0) listProduct(plist, curcount);
         }
@@ -58,6 +60,18 @@ int main(void){
 	  if (deleteok == 1){
 	    if(deleteProduct(&plist[no-1])) count--;
 		}
+        }
+	else if (menu == 5){
+          if(count ==0)
+            printf("데이터가 없습니다!\n");
+          else
+            saveData(plist, curcount);
+        }
+        else if (menu == 6){
+          if(count ==0)
+            printf("데이터가 없습니다!\n");
+          else
+            searchName(plist, curcount);
         }
     }
     printf("종료됨!\n");

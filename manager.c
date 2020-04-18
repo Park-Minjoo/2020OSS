@@ -20,3 +20,56 @@ int selectDataNo(Product *p, int count){
         scanf("%d", &no);
         return no;
 	}
+void saveData(Product *p, int count){
+ //등록된 제품리스트를 파일에 저장
+	FILE *fp;
+	fp = fopen("product.txt", "wt");
+
+	for(int i = 0; i < count; i++){
+	if(s[i].weight == -1) continue;
+	
+//	fprintf(fp, "%s %d %d %d\n", s[i].name, s[i].kor, s[i].eng, s[i].math);
+  	}fclose(fp);
+  printf("저장됨!\n");
+}
+int loadData(Product *p){
+ // 파일을 불러오는 함수
+int count = 0;
+  FILE *fp; //파일 포인터 생성
+
+  fp = fopen("product.txt", "rt");//파일을 연다. 이미 만들어진 파일
+  if(fp == NULL){ //파일이 없는 경우
+    printf("=> 파일 없음\n");
+    return 0;
+  }
+ 
+  for(;;count++){
+   // fscanf(fp, "%s %d %d %d", s[count].name, &s[count].kor, &s[count].eng, &s[count].math);
+    if(feof(fp)) break;
+  }
+  fclose(fp);
+  printf("=> 로딩 성공\n");
+  return count;
+}
+void searchName(Product *p, int count){ 
+//제품을 검색하는 함수
+  int scount = 0;
+  char search[20];
+
+  printf("검색할 이름은?\n");
+  scanf("%s", search);
+
+  printf("*******************\n");
+  for(int i = 0; i < count; i++){
+    if(p[i].weight == -1) continue;
+      if(strstr(p[i].name, search)){
+        printf("%2d ", i+1);
+        readProduct(p[i]);
+        scount++;
+      }
+    }
+  if(scount == 0) printf("=> 검색된 데이터 없음!");
+  printf("\n");
+}	
+	
+}
