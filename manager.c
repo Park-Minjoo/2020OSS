@@ -20,19 +20,21 @@ int selectDataNo(Product *p, int count){
         scanf("%d", &no);
         return no;
 	}
+
 void saveData(Product *p, int count){
  //등록된 제품리스트를 파일에 저장
 	FILE *fp;
 	fp = fopen("product.txt", "wt");
 
 	for(int i = 0; i < count; i++){
-	if(s[i].weight == -1) continue;
+	if(p[i].weight == -1) continue;
 	
     fprintf(fp, "%s ", p[i].name); 
     fprintf(fp, "%dg %d원 (10g당:%d원) %d점 \n", p[i].weight, p[i].price, p[i].standPrice, p[i].star);
   	}fclose(fp);
   printf("저장됨!\n");
 }
+
 int loadData(Product *p){
  // 파일을 불러오는 함수
 int count = 0;
@@ -45,10 +47,9 @@ int count = 0;
   }
  
   for(;;count++){
-    fprintf(fp, "%s ", p[i].name); 
-    fprintf(fp, "%dg %d원 (10g당:%d원) %d점 \n", p[i].weight, p[i].price, p[i].standPrice, p[i].star);
-    
-	if(feof(fp)) break;
+    fprintf(fp, "%s ", p[count].name); 
+    fprintf(fp, "%dg %d원 (10g당:%d원) %d점 \n", p[count].weight, p[count].price, p[count].standPrice, p[count].star);
+    if(feof(fp)) break;
   }
   fclose(fp);
   printf("=> 로딩 성공\n");
@@ -75,4 +76,4 @@ void searchName(Product *p, int count){
   printf("\n");
 }	
 	
-}
+
