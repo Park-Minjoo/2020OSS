@@ -47,7 +47,6 @@ int count = 0;
   }
  
   for(;;count++){
-    fprintf(fp, "%s ", p[count].name); 
     fprintf(fp, "%dg %d원 (10g당:%d원) %d점 \n", p[count].weight, p[count].price, p[count].standPrice, p[count].star);
     if(feof(fp)) break;
   }
