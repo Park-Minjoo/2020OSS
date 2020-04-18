@@ -48,7 +48,7 @@ int count = 0;
  
   for(;;count++){
    // 	fscanf(fp,"%s", p[count].name); 
-	fscanf(fp, "%dg %d원 (10g당:%d원) %d점 ",&p[count].weight, &p[count].price, &p[count].standPrice);
+	fscanf(fp, "%dg %d원 (10g당:%d원) %d점 ",&p[count].weight, &p[count].price, &p[count].standPrice, &p[count].star);
 	fscanf(fp, "%s/n", p[count].name);
     if(feof(fp)) break;
   }
